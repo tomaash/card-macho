@@ -99,45 +99,49 @@ function App() {
         )}
 
         {/* Cards Display */}
-        <Stack
-          direction="row"
-          gap={6}
-          justify="center"
-          align="center"
-          width="100%"
-        >
-          <Stack gap={2} flex={1} align="center">
-            <Text fontSize="sm" color="gray.500" fontWeight="medium">
-              Previous Card
-            </Text>
-            <Card
-              card={gameState.previousCard || undefined}
-              isPlaceholder={!gameState.previousCard}
-              label="Previous"
-            />
-          </Stack>
+        {!gameState.isGameComplete && (
+          <>
+            <Stack
+              direction="row"
+              gap={6}
+              justify="center"
+              align="center"
+              width="100%"
+            >
+              <Stack gap={2} flex={1} align="center">
+                <Text fontSize="sm" color="gray.500" fontWeight="medium">
+                  Previous Card
+                </Text>
+                <Card
+                  card={gameState.previousCard || undefined}
+                  isPlaceholder={!gameState.previousCard}
+                  label="Previous"
+                />
+              </Stack>
 
-          <Stack gap={2} flex={1} align="center">
-            <Text fontSize="sm" color="gray.500" fontWeight="medium">
-              Current Card
-            </Text>
-            <Card
-              card={gameState.currentCard || undefined}
-              isPlaceholder={!gameState.currentCard}
-              label="Current"
-            />
-          </Stack>
-        </Stack>
+              <Stack gap={2} flex={1} align="center">
+                <Text fontSize="sm" color="gray.500" fontWeight="medium">
+                  Current Card
+                </Text>
+                <Card
+                  card={gameState.currentCard || undefined}
+                  isPlaceholder={!gameState.currentCard}
+                  label="Current"
+                />
+              </Stack>
+            </Stack>
 
-        {/* Snap Message - Reserved Space */}
-        <Box
-          minHeight="60px"
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-        >
-          <SnapMessage snapType={gameState.snapType} />
-        </Box>
+            {/* Snap Message - Reserved Space */}
+            <Box
+              minHeight="60px"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <SnapMessage snapType={gameState.snapType} />
+            </Box>
+          </>
+        )}
 
         {/* Draw Button */}
         {canDrawCard && !gameState.isGameComplete && (
