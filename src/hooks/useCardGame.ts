@@ -59,6 +59,11 @@ export const useCardGame = () => {
   const drawNextCard = useCallback(async () => {
     if (!deck || gameState.isGameComplete) return;
 
+    setGameState((prevState) => ({
+      ...prevState,
+      snapType: SnapType.NONE,
+    }));
+
     const response = await drawCard(deck.deck_id);
     if (!response || response.cards.length === 0) return;
 
