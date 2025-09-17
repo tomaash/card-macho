@@ -63,8 +63,8 @@ src/
 1. **Clone and navigate to the project:**
 
    ```bash
-   git clone <repository-url>
-   cd drivvn-card-deck
+   git clone git@github.com:tomaash/card-macho.git
+   cd card-macho
    ```
 
 2. **Install dependencies:**
