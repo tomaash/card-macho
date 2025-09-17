@@ -143,12 +143,12 @@ describe("useDeckAPI", () => {
 
   describe("loading states", () => {
     it("should set loading state during API calls", async () => {
-      let resolvePromise: (value: any) => void;
-      const promise = new Promise((resolve) => {
+      let resolvePromise: (value: Response) => void;
+      const promise = new Promise<Response>((resolve) => {
         resolvePromise = resolve;
       });
 
-      mockFetch.mockReturnValueOnce(promise as any);
+      mockFetch.mockReturnValueOnce(promise as Promise<Response>);
 
       const { result } = renderHook(() => useDeckAPI());
 
@@ -168,7 +168,7 @@ describe("useDeckAPI", () => {
           shuffled: true,
           remaining: 52,
         }),
-      });
+      } as Response);
 
       await deckPromise;
 

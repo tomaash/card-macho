@@ -44,9 +44,6 @@ export const useCardGame = () => {
       const valueMatch = currentCard.value === previousCard.value;
       const suitMatch = currentCard.suit === previousCard.suit;
 
-      if (valueMatch && suitMatch) {
-        return SnapType.BOTH;
-      }
       if (valueMatch) {
         return SnapType.VALUE;
       }

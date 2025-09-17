@@ -1,4 +1,4 @@
-import { renderHook, act, waitFor } from "@testing-library/react";
+import { renderHook, act } from "@testing-library/react";
 import { describe, it, expect, beforeEach, vi } from "vitest";
 import { useCardGame } from "../useCardGame";
 import * as deckAPI from "../useDeckAPI";
@@ -198,7 +198,7 @@ describe("useCardGame", () => {
       expect(result.current.gameState.stats.suitMatches).toBe(1);
     });
 
-    it("should detect both value and suit match", async () => {
+    it("should detect value match when both value and suit match", async () => {
       const { result } = renderHook(() => useCardGame());
 
       await act(async () => {
@@ -217,7 +217,7 @@ describe("useCardGame", () => {
         await result.current.drawNextCard();
       });
 
-      // Draw same card (both value and suit match)
+      // Draw same card (both value and suit match, but value takes priority)
       mockDrawCard.mockResolvedValueOnce({
         success: true,
         deck_id: "test-deck-id",
@@ -229,7 +229,7 @@ describe("useCardGame", () => {
         await result.current.drawNextCard();
       });
 
-      expect(result.current.gameState.snapType).toBe(SnapType.BOTH);
+      expect(result.current.gameState.snapType).toBe(SnapType.VALUE);
       expect(result.current.gameState.stats.valueMatches).toBe(1);
       expect(result.current.gameState.stats.suitMatches).toBe(1);
     });

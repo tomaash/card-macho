@@ -26,7 +26,6 @@ export const SnapType = {
   NONE: "NONE",
   VALUE: "VALUE",
   SUIT: "SUIT",
-  BOTH: "BOTH",
 } as const;
 
 export type SnapType = (typeof SnapType)[keyof typeof SnapType];

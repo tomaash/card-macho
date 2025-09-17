@@ -1,3 +1,5 @@
+/// <reference types="vitest/globals" />
+/// <reference types="node" />
 import "@testing-library/jest-dom";
 
 // Mock fetch for API tests

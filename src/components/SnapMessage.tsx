@@ -12,8 +12,6 @@ const getMessageText = (message: SnapType) => {
       return "SNAP VALUE!";
     case SnapType.SUIT:
       return "SNAP SUIT!";
-    case SnapType.BOTH:
-      return "SNAP VALUE! SNAP SUIT!";
     default:
       return "";
   }
@@ -25,8 +23,6 @@ const getMessageBg = (message: SnapType) => {
       return "blue.500";
     case SnapType.SUIT:
       return "green.500";
-    case SnapType.BOTH:
-      return "purple.500";
     default:
       return "gray.500";
   }

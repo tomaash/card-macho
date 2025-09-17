@@ -29,16 +29,6 @@ describe("SnapMessage", () => {
     expect(screen.getByText("SNAP SUIT!")).toBeInTheDocument();
   });
 
-  it("should render both value and suit snap message", () => {
-    render(
-      <TestWrapper>
-        <SnapMessage snapType={SnapType.BOTH} />
-      </TestWrapper>
-    );
-
-    expect(screen.getByText("SNAP VALUE! SNAP SUIT!")).toBeInTheDocument();
-  });
-
   it("should not render when message is empty", () => {
     const { container } = render(
       <TestWrapper>
@@ -93,15 +83,5 @@ describe("SnapMessage", () => {
     );
 
     expect(screen.getByText("SNAP SUIT!")).toBeInTheDocument();
-  });
-
-  it("should render both snaps with correct message", () => {
-    render(
-      <TestWrapper>
-        <SnapMessage snapType={SnapType.BOTH} />
-      </TestWrapper>
-    );
-
-    expect(screen.getByText("SNAP VALUE! SNAP SUIT!")).toBeInTheDocument();
   });
 });
