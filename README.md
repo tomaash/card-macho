@@ -2,6 +2,8 @@
 
 A React-based card game where players draw cards from a shuffled deck and watch for matches between consecutive cards. The game tracks value matches (same rank) and suit matches, providing an engaging way to test your luck and pattern recognition skills.
 
+Try Card Macho in your browser: https://card-macho.netlify.app/
+
 ## 🎮 What is Card Macho?
 
 Card Macho is an interactive card game that:
