@@ -83,7 +83,7 @@ function App() {
         </Box>
 
         {/* Game Status */}
-        {deck && (
+        {deck && !gameState.isGameComplete && (
           <Box
             bg="gray.50"
             px={4}
